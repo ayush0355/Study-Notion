@@ -15,39 +15,41 @@ const timeline = [
     },
     {
         logo:logo2,
-        heading:"",
-        Description:"Fully commited to the success company"
+        heading:"Responsibility",
+        Description:"Students will always be our top priority"
     },
     {
         logo:logo3,
-        heading:"Leadership",
-        Description:"Fully commited to the success company"
+        heading:"Flexibility",
+        Description:"The ability to switch is an important skill"
     },
     {
         logo:logo4,
-        heading:"Leadership",
-        Description:"Fully commited to the success company"
+        heading:"Solve the problem",
+        Description:"Code your way to a solution"
     },
 ]
 
 const TimelineSection = () => {
   return (
     <div >
-      <div className=' flex flex-row  gap-14 '>
+      <div className='flex  flex-col lg:flex-row justify-center items-center gap-20 mb-20 '>
 
-        <div className='w-[45%] flex  flex-col gap-5 '>
+        <div className='lg:w-[45%] flex flex-col gap-14 lg:gap-7'>
             {
                 timeline.map((element,index)=>{
                     return (
-                        <div className='flex flex-row gap-6 ' key={index}>
+                        <div className='flex flex-col lg:gap-3 ' key={index}>
 
-                            <div className='w-[50px] h-[50px] bg-white flex items-center'>
-                                <img src={element.logo} loading='lazy' alt='imageLogo'></img>
-                            </div>
+                            <div className='flex gap-6' key={index}>
+                                <div className='w-[52px] h-[52px] bg-white rounded-full flex justify-center items-center shadow-[#00000012] shadow-[0_0_62px_0]'>
+                                    <img src={element.logo} loading='lazy' alt='imageLogo'></img>
+                                </div>
 
-                            <div className=''>
-                                <h2 className='font-semibold text-[18px]'>{element.heading}</h2>
-                                <p className='text-base'>{element.Description}</p>
+                                <div className=''>
+                                    <h2 className='font-semibold text-[18px]'>{element.heading}</h2>
+                                    <p className='text-base'>{element.Description}</p>
+                                </div>
                             </div>
 
                         </div>
@@ -56,30 +58,16 @@ const TimelineSection = () => {
             }
         </div>
 
-        <div className='relative  shadow-blue-200 h-[530px] '>
-            
-            <img src={timelineImage} 
-            alt='timelineImage'
-            className='shadow-white object-cover h-fit'
-            />
-            
-            
-
-            <div className='absolute bg-caribbeangreen-700 flex flex-row text-white uppercase py-6   left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-
-                <div className='flex flex-row gap-5 items-center border-r border-caribbeangreen-300 px-7'>
-                    <p className='text-3xl font-bold px-3'>10</p>
-                    <p className='text-caribbeangreen-300 text-sm'>Years of Experience</p>
-                </div>
-
-                <div className='flex gap-5 items-center px-7 '>
-                    <p className='text-3xl font-bold'>250</p>
-                    <p className='text-caribbeangreen-300 text-sm'>Type of Courses</p>
-                </div>
-
-            </div>
+        <div className=" w-fit h-fit shadow-blue-200 shadow-[0px_0px_30px_0px]">
+          
+          <div className=''>
+          <img
+            src={timelineImage}
+            alt="timelineImage"
+            className="   shadow-white shadow-[20px_20px_0px_0px]  "
+          />
+          </div>
         </div>
-
       </div>
     </div>
   )

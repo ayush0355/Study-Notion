@@ -1,4 +1,8 @@
-
+*{
+  box-sizing: border-box;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 
 .codeblock1 {
   width: 372.95px;
