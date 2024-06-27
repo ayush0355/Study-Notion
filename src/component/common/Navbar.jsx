@@ -6,9 +6,9 @@ import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import  ProfileDropdown from "../core/auth/ProfileDropdown"
-import {useState} from 'react'
-import { apiConnector } from '../../services/apiconnector'
-import { categories } from '../../services/apis'
+//import {useState} from 'react'
+//import { apiConnector } from '../../services/apiconnector'
+//import { categories } from '../../services/apis'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const subLinks = [
@@ -65,14 +65,31 @@ const Navbar = () => {
                              <li key={index}>
                                 {
                                     link.title === "Catalog" ? (
-                                    <div className="flex  items-center gap-1 group">
+                                    <div className="flex items-center  overflow-visible gap-1 group">
                                         <p>{link.title}</p>
                                         <IoIosArrowDown />
 
                                         <div className='lg:w-[300px] invisible absolute left-[50%] translate-x-[-50%] translate-y-[7%] top-[7%] flex flex-col rounded-md bg-richblack-5 py-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible 
-                                        group-hover:opacity-100'>
+                                        group-hover:opacity-100' >
+                                        {
+                                            subLinks.length ? (
+                                                
+                                                    subLinks.map((subLink, index)=>(
+                                                        <Link to={`${subLinks.link}`} key={index}>
+                                                            <p>{subLink.title}</p>
+                                                        </Link>
+                                                    ))
+                                                
+                                            ) : (<div></div>)
+                                        }
+                                        
+                                        </div>
+                                        <div className="absolute invisible left-[46%] top-[6%] h-6 w-6 rotate-45 rounded bg-richblack-5 opacity-0 group-hover:visible 
+                                        group-hover:opacity-100">
 
                                         </div>
+                                        
+                                        
                                     </div>) :
                                     (
                                         <Link to={link?.path}>
