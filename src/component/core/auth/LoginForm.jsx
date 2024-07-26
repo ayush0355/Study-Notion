@@ -40,12 +40,12 @@ function LoginForm() {
         </p>
         <input
           required
-          type="text"
+          type="email"
           name="email"
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email address"
-          className="form-style w-full"
+          className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
         />
       </label>
       <label className="relative">
@@ -59,7 +59,7 @@ function LoginForm() {
           value={password}
           onChange={handleOnChange}
           placeholder="Enter Password"
-          className="form-style w-full !pr-10"
+          className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
         />
         <span
           onClick={() => setShowPassword((prev) => !prev)}
@@ -72,7 +72,7 @@ function LoginForm() {
           )}
         </span>
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+          <p className="mt-2 ml-auto max-w-max text-sm text-blue-100">
             Forgot Password
           </p>
         </Link>

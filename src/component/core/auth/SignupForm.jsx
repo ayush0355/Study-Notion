@@ -99,7 +99,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full"
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
             />
           </label>
           <label>
@@ -113,7 +113,7 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full"
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
             />
           </label>
         </div>
@@ -128,7 +128,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-full"
+            className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
           />
         </label>
         <div className="flex gap-x-4">
@@ -143,7 +143,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10"
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -167,7 +167,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10"
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] border-b border-richblack-400"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}

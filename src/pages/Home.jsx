@@ -13,7 +13,7 @@ import ExploreMore from '../component/core/HomePage/ExploreMore'
 
 const Home = () => {
   return (
-    <div>
+    <div className='relative'>
       {/*Section 1 */}
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
             <Link to={"/signup"}>
