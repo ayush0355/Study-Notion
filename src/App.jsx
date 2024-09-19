@@ -9,7 +9,11 @@ import OpenRoute from "./component/core/auth/OpenRoute"
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
-
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard"
+import PrivateRoute from "./component/core/auth/PrivateRoute"
+import MyProfile from "./component/core/Dashboard/MyProfile";
+import Settings from "./component/core/Dashboard/Settings/index"
 
 function App() {
   return (
@@ -35,6 +39,27 @@ function App() {
             <VerifyEmail />
           </OpenRoute>
         } />
+
+        <Route 
+          path="contact"
+
+          element={
+            <Contact />
+          }
+        />
+
+        <Route
+          
+           element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>}
+        >
+
+        <Route path="dashboard/my-profile" element={<MyProfile />} />
+        <Route path="dashboard/Settings" element={<Settings />} />
+
+        </Route>
 
       </Routes>
     </div>
