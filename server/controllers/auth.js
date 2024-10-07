@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt");
 const jwt =require("jsonwebtoken");
 require("dotenv").config();
 const mailSender = require("../utils/mailSender");
-const {passwordUpdated} = require("../mail/templates/passwordUpdate");
+const passwordUpdate = require("../mail/templates/passwordUpdate");
+
 
 exports.sendOTP = async (req,res)=>{
 
@@ -215,6 +216,7 @@ exports.login = async (req,res)=>{
 exports.changePassword = async (req,res)=>{
     try{
         const userDetails = await User.findById(req.user.id);
+        
 
         const { oldPassword, newPassword} = req.body;
         
@@ -230,7 +232,7 @@ exports.changePassword = async (req,res)=>{
             });
         }
         let hashedPassword = await bcrypt.hash(newPassword , 10);
-        const user = await User.findOne({email});
+        // const user = await User.findOne({email});
 
         
             const newUser = await User.findByIdAndUpdate(req.user.id, {
@@ -241,15 +243,15 @@ exports.changePassword = async (req,res)=>{
                 const mailResponse = await mailSender(newUser.email,"Password for your account has been updated", 
                 passwordUpdate(
                     newUser.email,
-                    `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}` `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
-                ));
+                    `Password updated successfully for ${newUser.firstName} ${newUser.lastName}`
+                ) );
                 newUser.password = undefined;
             }catch(err){
-                console.error("Error occurred while sending email:", error)
+                console.error("Error occurred while sending email:", err)
                 return res.status(500).json({
                   success: false,
                   message: "Error occurred while sending email",
-                  error: error.message,
+                  error: err.message,
                 })
             }
             return res.status(200).json({

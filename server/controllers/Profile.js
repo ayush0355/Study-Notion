@@ -9,11 +9,14 @@ const mongoose = require("mongoose")
 exports.updateProfile = async (req,res) =>{
     try{
         const {
+            firstName="",
+            lastName="",
             dateOfBirth = "",
             about = "",
             contactNumber = "",
             gender ="",
           } = req.body
+          
           const id = req.user.id
 
         const userDetails = await User.findById(id);
@@ -24,22 +27,24 @@ exports.updateProfile = async (req,res) =>{
         //     lastName,
         //   })
         //   await user.save()
-
+        userDetails.firstName=firstName;
+        userDetails.lastName=lastName;
         profileDetails.dateOfBirth = dateOfBirth;
         profileDetails.about = about;
         profileDetails.gender = gender;
         profileDetails.contactNumber = contactNumber;
 
         await profileDetails.save();
+        await userDetails.save();
 
         const updatedUserDetails = await User.findById(id)
         .populate("additionalDetails")
         .exec()
-          const updatedProfileDetails = updatedUserDetails.additionalDetails;
+        // const updatedProfileDetails = updatedUserDetails;
         return res.status(200).json({
             success:true,
             message:"Profile details updated successfully",
-            updatedProfileDetails,
+            updatedUserDetails,
         });
 
 

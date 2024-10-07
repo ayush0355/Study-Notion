@@ -4,17 +4,18 @@ const User = require("../models/User");
 
 exports.auth =async (req,res,next)=>{
     try{
-        const token = req.cookies.token || req.body.token || req.header("Authorisation").replace("Bearer ","");
-    
+        console.log("middleware is start");
+        const token = req.cookies.token || req.body.token || req.header("Authorization").replace("Bearer ","");
+        
         if(!token){
             return res.status(401).json({
                 succeess:false,
                 message:"Token is missing",
             });
         }
-
+        
         try{
-            const decode = jwt.verify(token, process.env.JWT_SECRET);
+            const decode = jwt.verify(token, process.env.JWT_SECRET)
             req.user = decode;
 
         }
@@ -24,6 +25,8 @@ exports.auth =async (req,res,next)=>{
                 message:"Token is invalid",
             });
         }
+        console.log("middleware is end");
+
         next();
     }
     catch(err){

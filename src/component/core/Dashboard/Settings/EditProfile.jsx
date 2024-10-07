@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { updateProfile } from "../../../../services/operations/SettingsAPI"
 import IconBtn from "../../../common/IconBtn"
+import { useEffect } from "react"
 
 const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
 
@@ -27,6 +28,11 @@ export default function EditProfile() {
       console.log("ERROR MESSAGE - ", error.message)
     }
   }
+
+  // useEffect(()=>{
+
+  // },[submitProfileForm]); 
+
   return (
     <>
       <form onSubmit={handleSubmit(submitProfileForm)}>
@@ -75,7 +81,7 @@ export default function EditProfile() {
               )}
             </div>
           </div>
-
+ 
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="dateOfBirth" className="lable-style">

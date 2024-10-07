@@ -14,12 +14,14 @@ import Dashboard from "./pages/Dashboard"
 import PrivateRoute from "./component/core/auth/PrivateRoute"
 import MyProfile from "./component/core/Dashboard/MyProfile";
 import Settings from "./component/core/Dashboard/Settings/index"
+import Error from "./component/common/Error";
 
 function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col relative font-inter">
       <Navbar />
       <Routes>
+        <Route path="*" element={<Error />}/>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<OpenRoute><Login/></OpenRoute>} />
         <Route path="signup" element={<OpenRoute><Signup/></OpenRoute>} />

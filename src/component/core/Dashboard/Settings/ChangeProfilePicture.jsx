@@ -9,6 +9,7 @@ export default function ChangeProfilePicture() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const dispatch = useDispatch()
+  
 
   const [loading, setLoading] = useState(false)
   const [imageFile, setImageFile] = useState(null)
@@ -41,10 +42,10 @@ export default function ChangeProfilePicture() {
     try {
       console.log("uploading...",imageFile)
       setLoading(true)
-      const formdata = new FormData();
-      formdata.append("displayPicture", imageFile)
-      console.log("formdata", formdata)
-      dispatch(updateDisplayPicture(token, formdata)).then(() => {
+      const formData = new FormData()
+      formData.append('displayPicture', imageFile)
+
+      dispatch(updateDisplayPicture(token, formData)).then(() => {
         setLoading(false)
       })
     } catch (error) {
